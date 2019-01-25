@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HUGOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID_USUARIO" />
+    </Key>
+    <Property Name="ID_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="125" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="USUARIO1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CONTRASENA" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PERMISOS" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HUGOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIO" />
+    <FunctionImport Name="Sp_DeleteUser">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_GetUsers" ReturnType="Collection(HUGOModel.Sp_GetUsers_Result)" />
+    <FunctionImport Name="Sp_InsertUser">
+      <Parameter Name="nombre_usuario" Mode="In" Type="String" />
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="contrasena" Mode="In" Type="String" />
+      <Parameter Name="permisos" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_UpdateUser">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nombre_usuario" Mode="In" Type="String" />
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="contrasena" Mode="In" Type="String" />
+      <Parameter Name="permisos" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Sp_GetUsers_Result">
+    <Property Type="Int32" Name="ID_USUARIO" Nullable="false" />
+    <Property Type="String" Name="NOMBRE_USUARIO" Nullable="false" MaxLength="125" />
+    <Property Type="String" Name="USUARIO" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="CONTRASENA" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PERMISOS" Nullable="false" MaxLength="5" />
+  </ComplexType>
+</Schema>

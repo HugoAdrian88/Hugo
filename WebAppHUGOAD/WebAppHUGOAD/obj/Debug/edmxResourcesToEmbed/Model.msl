@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HUGOModelStoreContainer" CdmEntityContainer="HUGOEntities">
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="HUGOModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO" />
+          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+          <ScalarProperty Name="PERMISOS" ColumnName="PERMISOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_DeleteUser" FunctionName="HUGOModel.Store.Sp_DeleteUser" />
+    <FunctionImportMapping FunctionImportName="Sp_GetUsers" FunctionName="HUGOModel.Store.Sp_GetUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HUGOModel.Sp_GetUsers_Result">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+          <ScalarProperty Name="PERMISOS" ColumnName="PERMISOS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_InsertUser" FunctionName="HUGOModel.Store.Sp_InsertUser" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdateUser" FunctionName="HUGOModel.Store.Sp_UpdateUser" />
+  </EntityContainerMapping>
+</Mapping>
